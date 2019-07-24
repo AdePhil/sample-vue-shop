@@ -2,7 +2,7 @@
   <div class="item">
     <p>{{ item.name }}</p>
     <span class="salepill" v-if="item.sale">Sale</span>
-    <img :src="`/${item.img}`" :alt="`Image of ${item.name}`">
+    <img :src="`/${item.img}`" :alt="`Image of ${item.name}`" />
     <p>{{ item.price | usdollar }}</p>
     <button class="add" @click="addItem">Add Item</button>
   </div>
@@ -21,16 +21,16 @@ export default {
     }
   },
   filters: {
-    usdollar: function(value) {
-      return `$${value}`;
+    usdollar: function (value) {
+      return `$${value}`
     }
   },
   methods: {
-    addItem() {
-      this.$store.commit('addItem', this.item);
+    addItem () {
+      this.$store.commit('addItem', this.item)
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -48,7 +48,7 @@ export default {
 .salepill {
   background: rgb(232, 35, 25);
   color: white;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   position: absolute;
   right: 30px;
   top: 60px;

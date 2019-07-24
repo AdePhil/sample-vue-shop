@@ -1,14 +1,14 @@
 <template>
   <main class="capsule">
     <div class="saleimg">
-      <app-masthead img="bk-sale" title="Sale" bkcolor="#1ba079"/>
+      <app-masthead img="bk-sale" title="Sale" bkcolor="#1ba079" />
     </div>
     <div class="contain">
-      <app-sidebar :pricerange.sync="highprice" :sale="true"/>
+      <app-sidebar :pricerange.sync="highprice" :sale="true" />
       <transition-group name="items" tag="section" class="content">
         <app-item
           v-for="(item, index) in sProducts"
-          key="item"
+          :key="item.name + index"
           :item="item"
           :index="index"
         />
@@ -28,17 +28,17 @@ export default {
     AppMasthead,
     AppItem
   },
-  data() {
+  data () {
     return {
       highprice: 300
-    };
+    }
   },
   computed: {
-    sProducts() {
-      return this.$store.getters.sale.filter(el => el.price < this.highprice);
+    sProducts () {
+      return this.$store.getters.sale.filter(el => el.price < this.highprice)
     }
   }
-};
+}
 </script>
 
 <style>
